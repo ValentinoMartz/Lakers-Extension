@@ -3,45 +3,38 @@ import { games } from "./json/games.json";
 import "./App.css";
 
 function App() {
-  //const [checker, setChecker] = useState(false);
   const options = { year: "numeric", month: "numeric", day: "numeric" };
   const currentDate = new Date().toLocaleDateString("es-ES", options);
   const tomorrow = new Date(
     Date.now() + 24 * 60 * 60 * 1000
   ).toLocaleDateString("es-ES", options);
-  console.log(tomorrow);
-  const fakeDate = "2/2/2023";
-  console.log(games[0].day);
-  ///let checker = false;
 
   let match;
   let nextMatch;
   games.forEach((game) => {
     if (game.day === currentDate) match = game;
-    if (game.day === fakeDate) nextMatch = game;
+    if (game.day === tomorrow) nextMatch = game;
   });
-  console.log("🚀 ~ file: App.jsx:13 ~ App ~ match", match);
-  console.log("🚀 ~ file: App.jsx:13 ~ App ~ nextMatch", nextMatch);
 
   return (
-    <div className="App flex h-screen justify-center items-center text-yellow-400">
+    <div className="App flex w-[100%] m-auto  justify-center flex-wrap overflow-hidden text-[#fdbb23]">
       {match ? (
-        <div className="bg-purple-900 border-4 border-yellow-600 text-3xl py-4 px-24 flex gap-5">
-          <h4>Game day:</h4>
-          <h4>{match.day}</h4>
-          <h4>{match.time}</h4>
-          <h4>{match.against}</h4>
+        <div className="bg-[#552085] border-4 border-[#fdbb23] text-2xl py-4 px-6 gap-5">
+          <h4 className="mb-1 whitespace-nowrap">Game day:</h4>
+          <h4 className="mb-1">{match.day}</h4>
+          <h4 className="mb-1 whitespace-nowrap">{match.time}</h4>
+          <h4 className="mb-1">{match.against}</h4>
         </div>
       ) : nextMatch ? (
-        <div className="bg-purple-900 border-4 border-yellow-600 text-3xl py-4 px-24 flex gap-5">
-          <h4>Tomorrow:</h4>
-          <h4>{nextMatch.day}</h4>
-          <h4>{nextMatch.time}</h4>
-          <h4>{nextMatch.against}</h4>
+        <div className="bg-[#552085] border-4 border-[#fdbb23] text-2xl py-4 px-6  gap-5">
+          <h4 className="mb-1 whitespace-nowrap">Tomorrow:</h4>
+          <h4 className="mb-1">{nextMatch.day}</h4>
+          <h4 className="mb-1 whitespace-nowrap">{nextMatch.time}</h4>
+          <h4 className="mb-1">{nextMatch.against}</h4>
         </div>
       ) : (
-        <h1 className="bg-yellow-400 border border-purple-600 text-3xl font-bold">
-          No games today
+        <h1 className="bg-[#552085] border-4 border-[#fdbb23] text-2xl py-4 px-6  gap-5">
+          No games today or tomorrow
         </h1>
       )}
     </div>

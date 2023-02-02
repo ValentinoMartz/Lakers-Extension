@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Lakers Game Day",
+  "author": "Valentino Martinez",
+  "version": "1.0.1",
+  "description": "One click and it tells if LA Lakers play today or tomorrow",
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  },
+
+  "action": {
+    "default_title": "Lakers Game Day",
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "logo192.png",
+      "128": "logo192.png"
+    }
+  }
+}
